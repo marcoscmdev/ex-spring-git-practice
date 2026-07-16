@@ -3,8 +3,6 @@ package com.platzi_play.persistance.mapper;
 import com.platzi_play.domain.Genre;
 import org.mapstruct.Named;
 
-import static com.platzi_play.domain.Genre.COMEDY;
-
 public class GenreMapper {
 
     @Named("stringToGenre")
