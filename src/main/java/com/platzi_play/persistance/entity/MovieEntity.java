@@ -1,5 +1,6 @@
 package com.platzi_play.persistance.entity;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -7,6 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="platzi_play_peliculas")
+@JsonPropertyOrder({"id", "titulo", "duracion", "genero", "fechaEstreno", "clasificacion", "estado"})
 public class MovieEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
