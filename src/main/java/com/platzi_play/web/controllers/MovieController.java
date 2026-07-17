@@ -43,5 +43,10 @@ public class MovieController {
     public ResponseEntity <MovieDto> update(@PathVariable long id, @RequestBody UpdateMovieDto updateMovieDto){
         return ResponseEntity.ok(this.movieService.update(id, updateMovieDto));
     }
-    //TODO  Crear un nuevo servicio con la anotacion @DeleteMapping para permitir eliminar pelicula por id
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id){
+        this.movieService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+    
 }
