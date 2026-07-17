@@ -1,10 +1,12 @@
 package com.platzi_play.persistance.mapper;
 
 import com.platzi_play.domain.dto.MovieDto;
+import com.platzi_play.domain.dto.UpdateMovieDto;
 import com.platzi_play.persistance.entity.MovieEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 @Mapper(componentModel = "spring", uses = {GenreMapper.class, StatusMapper.class})
@@ -21,4 +23,8 @@ public interface MovieMapper {
     @Mapping(source = "genre", target="genero", qualifiedByName = "genreToString")
     @Mapping(source = "status", target="estado", qualifiedByName = "booleanToString")
     MovieEntity toEntity(MovieDto movieDto);
+    @Mapping(target="titulo", source = "title")
+    @Mapping(target="fechaEstreno", source = "releaseDate")
+    @Mapping(target="clasificacion", source = "rating")
+    void updateEntityFromDto(UpdateMovieDto updateMovieDto,@MappingTarget MovieEntity movieEntity);
 }

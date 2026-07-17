@@ -1,6 +1,7 @@
 package com.platzi_play.web.controllers;
 
 import com.platzi_play.domain.dto.MovieDto;
+import com.platzi_play.domain.dto.UpdateMovieDto;
 import com.platzi_play.domain.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,4 +38,10 @@ public class MovieController {
         MovieDto movieDtoResponse = this.movieService.add(movieDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(movieDtoResponse);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity <MovieDto> update(@PathVariable long id, @RequestBody UpdateMovieDto updateMovieDto){
+        return ResponseEntity.ok(this.movieService.update(id, updateMovieDto));
+    }
+    //TODO  Crear un nuevo servicio con la anotacion @DeleteMapping para permitir eliminar pelicula por id
 }
