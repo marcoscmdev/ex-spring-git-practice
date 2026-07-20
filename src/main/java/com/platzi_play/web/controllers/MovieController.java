@@ -35,7 +35,6 @@ public class MovieController {
         if (movieDto == null) {
             return ResponseEntity.notFound().build();
         }
-
         return ResponseEntity.ok(movieDto);
     }
 
