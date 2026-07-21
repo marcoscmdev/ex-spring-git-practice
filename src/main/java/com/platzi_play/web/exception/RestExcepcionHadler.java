@@ -33,7 +33,7 @@ public class RestExcepcionHadler {
 }
 @ExceptionHandler(Exception.class)
 public ResponseEntity<Error> handleException(Exception ex) {
-        Error error = new Error("unknown- error", ex.getMessage());
+        Error error = new Error("unknown-error", ex.getMessage());
         return ResponseEntity.internalServerError().body(error);
 }
 
